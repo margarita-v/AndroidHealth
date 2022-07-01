@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- https://colornamer.robertcooper.me/ -->
+    <color name="rich_red">#FF1744</color>
+    <color name="radical_red">#FF365D</color>
+    <color name="royal_curtsy">#252849</color>
+    <color name="majestic_mount">#7C7E92</color>
+    <color name="memorize">#9294A6</color>
+
+    <color name="black">#FF000000</color>
+    <color name="neverything">#10171D</color>
+    <color name="river_styx">#141B20</color>
+    <color name="cinder">#22292E</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cascading_white">#F6F6F6</color>
+    <color name="azure_hint">#DCDDE1</color>
+    <color name="mithril_silver">#B9BAC1</color>
+</resources>

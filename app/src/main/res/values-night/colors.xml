@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">@color/radical_red</color>
+    <color name="mainBackground">@color/river_styx</color>
+    <color name="componentBackground">@color/cinder</color>
+    <color name="navBarUnSelectedIconTint">@color/memorize</color>
+</resources>

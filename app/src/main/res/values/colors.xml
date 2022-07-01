@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">@color/rich_red</color>
+    <color name="mainBackground">@color/cascading_white</color>
+    <color name="componentBackground">@color/white</color>
+    <color name="navBarUnSelectedIconTint">@color/mithril_silver</color>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_steps"
+        android:icon="@drawable/ic_steps_30"
+        android:title="@string/title_steps" />
+
+    <item
+        android:id="@+id/navigation_pulse"
+        android:icon="@drawable/ic_pulse_30"
+        android:title="@string/title_pulse" />
+
+    <item
+        android:id="@+id/navigation_sleep"
+        android:icon="@drawable/ic_sleep_30"
+        android:title="@string/title_sleep" />
+
+</menu>
