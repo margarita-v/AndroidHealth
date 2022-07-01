@@ -1,25 +1,25 @@
-package com.example.androidhealth.ui.sleep
+package com.example.androidhealth.ui.details
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.androidhealth.R
-import com.example.androidhealth.databinding.FragmentSleepBinding
+import com.example.androidhealth.databinding.FragmentDetailsBinding
 
-class SleepFragment : Fragment(R.layout.fragment_sleep) {
+class DetailsFragment : Fragment(R.layout.fragment_details) {
 
-    private var binding: FragmentSleepBinding? = null
+    private var binding: FragmentDetailsBinding? = null
 
-    private val viewModel by viewModels<SleepViewModel>()
+    private val viewModel by viewModels<DetailsViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentSleepBinding.bind(view)
+        val binding = FragmentDetailsBinding.bind(view)
         this.binding = binding
 
         viewModel.text.observe(viewLifecycleOwner) {
-            binding.textSleep.text = it
+            binding.textDetails.text = it
         }
     }
 

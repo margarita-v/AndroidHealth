@@ -16,15 +16,13 @@ import kotlinx.coroutines.launch
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySplashBinding
+    private val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }
 
     private val viewModel by viewModels<SplashViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
-
-        binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.root.applyInsetter {

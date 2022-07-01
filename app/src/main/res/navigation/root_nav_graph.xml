@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/root_nav_graph"
     app:startDestination="@+id/navigation_steps">
 
     <fragment
@@ -22,4 +22,14 @@
         android:name="com.example.androidhealth.ui.sleep.SleepFragment"
         android:label="@string/title_sleep"
         tools:layout="@layout/fragment_sleep" />
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.example.androidhealth.ui.details.DetailsFragment"
+        android:label="@string/title_details"
+        tools:layout="@layout/fragment_details" />
+
+    <action
+        android:id="@+id/toDetails"
+        app:destination="@id/navigation_details" />
 </navigation>

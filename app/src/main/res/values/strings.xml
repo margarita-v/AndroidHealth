@@ -3,5 +3,6 @@
     <string name="title_steps">Steps</string>
     <string name="title_pulse">Pulse</string>
     <string name="title_sleep">Sleep</string>
+    <string name="title_details">To details</string>
     <string name="title_theme">Dark theme</string>
 </resources>

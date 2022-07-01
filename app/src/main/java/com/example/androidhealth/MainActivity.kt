@@ -12,20 +12,18 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.nav_host_fragment_activity_main
         ) as NavHostFragment
         val navController = navHostFragment.navController
-        navController.setGraph(R.navigation.mobile_navigation)
+        navController.setGraph(R.navigation.root_nav_graph)
 
         val navView: BottomNavigationView = binding.navView
         navView.setupWithNavController(navController)

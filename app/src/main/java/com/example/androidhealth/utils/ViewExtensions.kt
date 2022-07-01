@@ -1,6 +1,15 @@
 package com.example.androidhealth.utils
 
 import android.view.View
+import dev.chrisbanes.insetter.applyInsetter
+
+fun View.statusBarInsets() {
+    applyInsetter {
+        type(statusBars = true) {
+            margin()
+        }
+    }
+}
 
 fun <T : Any> View.performIfChanged(data: T?, action: () -> Unit) {
     actionIfChanged(data) { _ -> action() }
