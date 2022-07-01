@@ -1,29 +1,42 @@
 package com.example.androidhealth.ui.steps
 
-import android.app.Application
 import android.app.UiModeManager
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.androidhealth.interactor.UserSettingsInteractor
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class StepsViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class StepsViewModel @Inject constructor(
+    private val interactor: UserSettingsInteractor
+) : ViewModel() {
 
-    private val _nightModeEnabled = MutableLiveData<Boolean>().apply {
-        val mode = application.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        value = mode == Configuration.UI_MODE_NIGHT_YES
+    private val _nightMode = MutableStateFlow(UiModeManager.MODE_NIGHT_AUTO)
+    val nightMode: StateFlow<Int> get() = _nightMode.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            interactor.isDarkThemeEnabled().collect {
+                _nightMode.value = it
+            }
+        }
     }
-    val nightMode: LiveData<Boolean> = _nightModeEnabled
 
     fun toggleNightMode(enabled: Boolean) {
-        _nightModeEnabled.value = enabled
-        AppCompatDelegate.setDefaultNightMode(
-            if (enabled) {
-                UiModeManager.MODE_NIGHT_YES
-            } else {
-                UiModeManager.MODE_NIGHT_NO
-            }
-        )
+        val mode = if (enabled) {
+            UiModeManager.MODE_NIGHT_YES
+        } else {
+            UiModeManager.MODE_NIGHT_NO
+        }
+        _nightMode.value = mode
+        viewModelScope.launch {
+            interactor.setIsDarkThemeEnabled(mode)
+        }
     }
 }
