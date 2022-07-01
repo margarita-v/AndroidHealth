@@ -6,10 +6,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.androidhealth.R
 import com.example.androidhealth.RootNavGraphDirections
 import com.example.androidhealth.databinding.FragmentStepsBinding
+import com.example.androidhealth.utils.openFullScreen
 import com.example.androidhealth.utils.statusBarInsets
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -40,7 +40,7 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
             viewModel.toggleNightMode(isChecked)
         }
         binding.detailsBtn.setOnClickListener {
-            findNavController().navigate(RootNavGraphDirections.toDetails())
+            openFullScreen(RootNavGraphDirections.toDetails())
         }
     }
 

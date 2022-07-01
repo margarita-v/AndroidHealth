@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tabs_nav_graph"
+    app:startDestination="@+id/navigation_steps">
+
+    <fragment
+        android:id="@+id/navigation_steps"
+        android:name="com.example.androidhealth.ui.steps.StepsFragment"
+        android:label="@string/title_steps"
+        tools:layout="@layout/fragment_steps" />
+
+    <fragment
+        android:id="@+id/navigation_pulse"
+        android:name="com.example.androidhealth.ui.pulse.PulseFragment"
+        android:label="@string/title_pulse"
+        tools:layout="@layout/fragment_pulse" />
+
+    <fragment
+        android:id="@+id/navigation_sleep"
+        android:name="com.example.androidhealth.ui.sleep.SleepFragment"
+        android:label="@string/title_sleep"
+        tools:layout="@layout/fragment_sleep" />
+</navigation>

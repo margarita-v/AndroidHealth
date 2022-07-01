@@ -3,25 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_nav_graph"
-    app:startDestination="@+id/navigation_steps">
+    app:startDestination="@+id/fragment_main">
 
     <fragment
-        android:id="@+id/navigation_steps"
-        android:name="com.example.androidhealth.ui.steps.StepsFragment"
-        android:label="@string/title_steps"
-        tools:layout="@layout/fragment_steps" />
+        android:id="@+id/fragment_main"
+        android:name="com.example.androidhealth.MainFragment"
+        android:label="@string/title_main"
+        tools:layout="@layout/fragment_main" />
 
-    <fragment
-        android:id="@+id/navigation_pulse"
-        android:name="com.example.androidhealth.ui.pulse.PulseFragment"
-        android:label="@string/title_pulse"
-        tools:layout="@layout/fragment_pulse" />
-
-    <fragment
-        android:id="@+id/navigation_sleep"
-        android:name="com.example.androidhealth.ui.sleep.SleepFragment"
-        android:label="@string/title_sleep"
-        tools:layout="@layout/fragment_sleep" />
+    <include app:graph="@navigation/tabs_nav_graph" />
 
     <fragment
         android:id="@+id/navigation_details"
@@ -31,5 +21,9 @@
 
     <action
         android:id="@+id/toDetails"
-        app:destination="@id/navigation_details" />
+        app:destination="@id/navigation_details"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 </navigation>
