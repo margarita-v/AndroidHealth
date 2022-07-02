@@ -4,7 +4,7 @@
         <item name="colorPrimary">@color/accent</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/accent</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
 
         <item name="android:windowBackground">@color/mainBackground</item>
         <item name="android:windowLightStatusBar">true</item>
@@ -25,6 +25,28 @@
         <item name="android:activityCloseEnterAnimation">@anim/nav_default_pop_enter_anim</item>
         <item name="android:activityCloseExitAnimation">@anim/nav_default_pop_exit_anim</item>
     </style>
+
+    <!-- region ChartView -->
+    <style name="AxisChartStyle">
+        <item name="axisLabelStyle">@style/Text.Regular.12.SecondaryColor</item>
+        <item name="axisLineStyle">@style/AxisLineStyle</item>
+    </style>
+
+    <style name="AxisLineStyle">
+        <item name="color">?android:textColorSecondary</item>
+        <item name="thickness">1dp</item>
+    </style>
+
+    <style name="LineChartLineChartStyle">
+        <item name="line1Spec">@style/LineChartLine1Spec</item>
+    </style>
+
+    <style name="LineChartLine1Spec">
+        <item name="color">@color/accent</item>
+        <item name="lineThickness">4dp</item>
+        <item name="gradientTopColor">#3DFF365D</item>
+    </style>
+    <!-- endregion -->
 
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="itemIconTint">@color/bg_navbar_tint</item>

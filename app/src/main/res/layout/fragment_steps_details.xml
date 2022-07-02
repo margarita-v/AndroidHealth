@@ -64,6 +64,18 @@
         android:textAlignment="center"
         android:textAppearance="@style/Text.Regular.14" />
 
+    <com.patrykandpatryk.vico.view.chart.ChartView
+        android:id="@+id/steps_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        app:axisStyle="@style/AxisChartStyle"
+        app:chart="line"
+        app:chartHorizontalScrollingEnabled="true"
+        app:chartZoomEnabled="true"
+        app:lineChartStyle="@style/LineChartLineChartStyle"
+        app:showBottomAxis="true" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

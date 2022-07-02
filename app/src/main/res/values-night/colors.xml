@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="onSecondary">@color/white</color>
     <color name="accent">@color/radical_red</color>
     <color name="mainBackground">@color/river_styx</color>
     <color name="componentBackground">@color/cinder</color>
