@@ -7,14 +7,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.FragmentDetailsBinding
-import com.example.androidhealth.ui.details.pager.DemoCollectionAdapter
+import com.example.androidhealth.ui.details.pager.DetailsAdapter
 import com.example.androidhealth.utils.statusBarInsets
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     private var binding: FragmentDetailsBinding? = null
-    private val pagerAdapter by lazy { DemoCollectionAdapter(this) }
+    private val pagerAdapter by lazy { DetailsAdapter(this) }
 
     private val viewModel by viewModels<DetailsViewModel>()
 
@@ -27,7 +27,13 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         binding.detailsVp.adapter = pagerAdapter
         binding.detailsVp.isUserInputEnabled = false
         TabLayoutMediator(binding.detailsTl, binding.detailsVp) { tab, position ->
-            tab.text = "OBJECT ${(position + 1)}"
+            tab.text = getString(
+                when (position) {
+                    0 -> R.string.title_steps
+                    1 -> R.string.title_pulse
+                    else -> R.string.title_sleep
+                }
+            )
         }.attach()
 
         binding.toolbar.setOnBackClickListener {

@@ -35,6 +35,7 @@
     <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
         <item name="android:background">@drawable/bg_tab_layout</item>
         <item name="tabSelectedTextColor">@color/titleColor</item>
+        <item name="tabTextAppearance">@style/Text.Medium.14</item>
         <item name="tabTextColor">@color/titleColor</item>
         <item name="tabRippleColor">@color/selector_tab_ripple_color</item>
         <item name="tabUnboundedRipple">true</item>

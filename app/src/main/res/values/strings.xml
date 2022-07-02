@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">AndroidHealth</string>
     <string name="title_main">Main</string>
-    <string name="title_steps">Steps</string>
-    <string name="title_pulse">Pulse</string>
-    <string name="title_sleep">Sleep</string>
+    <string name="title_steps">Шаги</string>
+    <string name="title_pulse">Пульс</string>
+    <string name="title_sleep">Сон</string>
+    <string name="title_sample">Coming soon</string>
     <string name="title_details">To details</string>
-    <string name="title_theme">Dark theme</string>
+    <string name="title_theme">Тёмная тема</string>
 </resources>
