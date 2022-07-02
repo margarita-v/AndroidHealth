@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/text_details"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/details_tl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        android:layout_height="36dp"
+        android:layout_margin="16dp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/details_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

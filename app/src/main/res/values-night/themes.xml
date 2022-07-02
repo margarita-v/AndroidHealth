@@ -14,5 +14,6 @@
             @android:color/transparent
         </item>
         <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+        <item name="tabStyle">@style/Widget.App.TabLayout</item>
     </style>
 </resources>

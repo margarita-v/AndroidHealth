@@ -16,6 +16,7 @@
         </item>
 
         <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+        <item name="tabStyle">@style/Widget.App.TabLayout</item>
     </style>
 
     <style name="ActivityAnimation" parent="@android:style/Animation.Activity">
@@ -29,5 +30,16 @@
         <item name="itemIconTint">@color/bg_navbar_tint</item>
         <item name="itemTextColor">@color/bg_navbar_tint</item>
         <item name="itemRippleColor">@color/bg_navbar_ripple</item>
+    </style>
+
+    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@drawable/bg_tab_layout</item>
+        <item name="tabSelectedTextColor">@color/titleColor</item>
+        <item name="tabTextColor">@color/titleColor</item>
+        <item name="tabRippleColor">@color/selector_tab_ripple_color</item>
+        <item name="tabUnboundedRipple">true</item>
+        <item name="tabIndicatorGravity">stretch</item>
+        <item name="tabIndicatorColor">@color/componentBackground</item>
+        <item name="tabIndicator">@drawable/bg_tab_layout_single_tab</item>
     </style>
 </resources>

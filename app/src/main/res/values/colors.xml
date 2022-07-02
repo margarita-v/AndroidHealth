@@ -4,4 +4,5 @@
     <color name="mainBackground">@color/cascading_white</color>
     <color name="componentBackground">@color/white</color>
     <color name="navBarUnSelectedIconTint">@color/mithril_silver</color>
+    <color name="titleColor">@color/royal_curtsy</color>
 </resources>

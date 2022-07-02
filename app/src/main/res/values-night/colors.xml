@@ -4,4 +4,5 @@
     <color name="mainBackground">@color/river_styx</color>
     <color name="componentBackground">@color/cinder</color>
     <color name="navBarUnSelectedIconTint">@color/memorize</color>
+    <color name="titleColor">@color/white</color>
 </resources>
