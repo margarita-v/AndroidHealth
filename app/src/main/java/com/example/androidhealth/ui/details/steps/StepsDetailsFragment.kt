@@ -26,7 +26,7 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
 
     private val generator = RandomEntriesGenerator(
         xRange = IntProgression.fromClosedRange(0, 24, 2),
-        yRange = 6000..10000,
+        yRange = 2000..6000,
     )
     private val producer = ChartEntryModelProducer()
     private val valueFormatter = HoursValueFormatter()
@@ -49,6 +49,7 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
                 indicatorInnerColor = mainBackground,
                 guidelineColor = context.resolveAttrColor(android.R.attr.textColorPrimary),
             )
+            chart?.maxY = 10000f
             chart?.addDecoration(
                 decoration = ThresholdLine(
                     thresholdValue = 8000f,
