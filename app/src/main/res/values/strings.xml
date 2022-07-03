@@ -6,5 +6,6 @@
     <string name="title_sleep">Сон</string>
     <string name="title_sample">Coming soon</string>
     <string name="title_details">To details</string>
+    <string name="title_profile">To profile</string>
     <string name="title_theme">Тёмная тема</string>
 </resources>

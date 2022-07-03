@@ -477,6 +477,10 @@
         <item name="android:textColor">?android:textColorTertiary</item>
     </style>
 
+    <style name="Text.Bold.28">
+        <item name="android:textSize">28sp</item>
+    </style>
+
     <style name="Text.Black">
         <item name="android:fontFamily">@font/roboto_black</item>
     </style>

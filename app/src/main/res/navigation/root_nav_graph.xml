@@ -14,6 +14,20 @@
     <include app:graph="@navigation/tabs_nav_graph" />
 
     <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.androidhealth.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <action
+        android:id="@+id/toProfile"
+        app:destination="@id/navigation_profile"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+    <fragment
         android:id="@+id/navigation_details"
         android:name="com.example.androidhealth.ui.details.DetailsFragment"
         android:label="@string/title_details"
