@@ -73,7 +73,7 @@
         app:axisStyle="@style/AxisChartStyle"
         app:chart="line"
         app:chartHorizontalScrollingEnabled="true"
-        app:chartZoomEnabled="true"
+        app:chartZoomEnabled="false"
         app:lineChartStyle="@style/LineChartLineChartStyle"
         app:showBottomAxis="true" />
 

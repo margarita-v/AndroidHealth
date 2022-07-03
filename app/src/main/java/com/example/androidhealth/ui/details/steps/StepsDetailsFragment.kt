@@ -13,6 +13,7 @@ import com.patrykandpatryk.vico.core.axis.Axis
 import com.patrykandpatryk.vico.core.axis.AxisPosition
 import com.patrykandpatryk.vico.core.axis.formatter.AxisValueFormatter
 import com.patrykandpatryk.vico.core.chart.decoration.ThresholdLine
+import com.patrykandpatryk.vico.core.chart.line.LineChart
 import com.patrykandpatryk.vico.core.chart.values.ChartValues
 import com.patrykandpatryk.vico.core.component.shape.ShapeComponent
 import com.patrykandpatryk.vico.core.component.text.textComponent
@@ -49,6 +50,7 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
                 indicatorInnerColor = mainBackground,
                 guidelineColor = context.resolveAttrColor(android.R.attr.textColorPrimary),
             )
+            (chart as LineChart).spacingDp = 60f
             chart?.maxY = 10000f
             chart?.addDecoration(
                 decoration = ThresholdLine(
