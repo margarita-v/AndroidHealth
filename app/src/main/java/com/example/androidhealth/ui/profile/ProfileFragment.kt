@@ -11,7 +11,6 @@ import com.example.androidhealth.R
 import com.example.androidhealth.databinding.FragmentProfileBinding
 import com.example.androidhealth.utils.statusBarInsets
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

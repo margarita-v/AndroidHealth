@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.androidhealth.MainActivity
 import com.example.androidhealth.databinding.ActivitySplashBinding
 import dev.chrisbanes.insetter.applyInsetter
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")

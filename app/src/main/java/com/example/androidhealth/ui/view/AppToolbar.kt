@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.ViewToolbarBinding

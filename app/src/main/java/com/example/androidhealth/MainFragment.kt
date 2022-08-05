@@ -8,7 +8,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.androidhealth.databinding.FragmentMainBinding
 import com.example.androidhealth.utils.openFullScreen
 import com.example.androidhealth.utils.statusBarInsets
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -26,11 +25,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val navHostFragment = childFragmentManager.findFragmentById(
             R.id.nav_host_fragment_main
         ) as NavHostFragment
-        val navController = navHostFragment.navController
-        navController.setGraph(R.navigation.tabs_nav_graph)
-
-        val navView: BottomNavigationView = binding.navView
-        navView.setupWithNavController(navController)
+        binding.navView.setupWithNavController(navHostFragment.navController)
     }
 
     override fun onDestroyView() {
