@@ -7,5 +7,11 @@
     <string name="title_sample">Coming soon</string>
     <string name="title_details">To details</string>
     <string name="title_profile">To profile</string>
-    <string name="title_theme">Тёмная тема</string>
+    <string name="title_app_theme">Тема приложения</string>
+    <string name="title_logout">Выйти из аккаунта</string>
+    <string name="title_dark_theme">Тёмная тема</string>
+    <string name="title_profile_view">Обзор</string>
+    <string name="title_steps_left">Осталось %s шагов</string>
+    <string name="health_advice_title">Советы по здоровью</string>
+    <string name="health_advice_message">Если вы ежедневно проходите более 8000 шагов, это может приносить пользу здоровью.</string>
 </resources>

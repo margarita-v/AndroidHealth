@@ -22,7 +22,6 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         binding.toolbar.statusBarInsets()
 
         binding.detailsVp.adapter = pagerAdapter
-        binding.detailsVp.isUserInputEnabled = false
         TabLayoutMediator(binding.detailsTl, binding.detailsVp) { tab, position ->
             tab.text = getString(
                 when (position) {

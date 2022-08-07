@@ -95,14 +95,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Советы по здоровью"
+                android:text="@string/health_advice_title"
                 android:textAppearance="@style/Text.Medium.18" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Если вы ежедневно проходите более 8000 шагов, это может приносить пользу здоровью."
+                android:text="@string/health_advice_message"
                 android:textAppearance="@style/Text.Regular.14.SecondaryColor" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

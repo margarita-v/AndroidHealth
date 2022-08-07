@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Обзор"
+            android:text="@string/title_profile_view"
             android:textAppearance="@style/Text.Bold.28" />
 
         <ImageButton

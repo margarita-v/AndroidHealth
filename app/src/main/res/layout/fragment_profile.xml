@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Тема приложения"
+                android:text="@string/title_app_theme"
                 android:textAppearance="@style/Text.Regular.12.SecondaryColor" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/title_theme"
+                android:text="@string/title_dark_theme"
                 android:textAppearance="@style/Text.Medium.18" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -69,7 +69,7 @@
         android:drawablePadding="16dp"
         android:focusable="true"
         android:padding="20dp"
-        android:text="Выйти из аккаунта"
+        android:text="@string/title_logout"
         android:textAppearance="@style/Text.Regular.14"
         android:textColor="@color/accent"
         app:drawableStartCompat="@drawable/ic_logout"
