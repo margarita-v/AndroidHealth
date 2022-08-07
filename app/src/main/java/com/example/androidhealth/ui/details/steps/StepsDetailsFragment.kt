@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.FragmentStepsDetailsBinding
-import com.example.androidhealth.ui.details.chart.RandomEntriesGenerator
 import com.example.androidhealth.ui.details.chart.getMarker
 import com.example.androidhealth.utils.resolveAttrColor
 import com.example.androidhealth.utils.resolveColor
@@ -20,6 +19,7 @@ import com.patrykandpatryk.vico.core.component.text.textComponent
 import com.patrykandpatryk.vico.core.dimensions.MutableDimensions
 import com.patrykandpatryk.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatryk.vico.core.formatter.ValueFormatter
+import com.patrykandpatryk.vico.core.util.RandomEntriesGenerator
 
 class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
 
