@@ -25,13 +25,13 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/steps_count_date_tv"
+            android:id="@+id/steps_date_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginHorizontal="8dp"
-            android:text="9 Декабря"
-            android:textAppearance="@style/Text.Regular.14.SecondaryColor" />
+            android:textAppearance="@style/Text.Regular.14.SecondaryColor"
+            tools:text="9 Декабря" />
 
         <ImageButton
             android:id="@+id/steps_right_ibtn"
