@@ -49,10 +49,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="2 650"
         android:textAlignment="center"
         android:textAppearance="@style/Text.Regular.36"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="2 650" />
 
     <TextView
         android:id="@+id/steps_count_left_tv"
@@ -60,9 +60,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:text="Осталось 5 350 шагов"
         android:textAlignment="center"
-        android:textAppearance="@style/Text.Regular.14" />
+        android:textAppearance="@style/Text.Regular.14"
+        tools:text="Осталось 5 350 шагов" />
 
     <com.patrykandpatryk.vico.view.chart.ChartView
         android:id="@+id/steps_chart"
