@@ -3,6 +3,7 @@ package com.example.androidhealth.ui.details.steps
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,8 +20,6 @@ import com.patrykandpatryk.vico.core.chart.values.ChartValues
 import com.patrykandpatryk.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatryk.vico.core.formatter.ValueFormatter
 import kotlinx.coroutines.launch
-
-private const val STEPS_FORMATTER = "% d"
 
 class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
 
@@ -55,10 +54,11 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
             launch {
                 viewModel.currentChartData.collect {
                     producer.setEntries(it.entries)
-                    binding.stepsCountTv.text = STEPS_FORMATTER.format(it.sum)
+                    binding.stepsCountTv.text = formatSteps(it.sum)
+                    binding.stepsCountLeftTv.isVisible = it.left > 0
                     binding.stepsCountLeftTv.text = getString(
                         R.string.title_steps_left,
-                        STEPS_FORMATTER.format(it.left)
+                        formatSteps(it.left)
                     )
                 }
             }
@@ -88,6 +88,15 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
                 guidelineColor = context.resolveAttrColor(android.R.attr.textColorPrimary),
             )
             (chart as LineChart).spacingDp = 60f
+        }
+    }
+
+    private fun formatSteps(steps: Int): String {
+        val thousands = steps.div(1000)
+        return if (thousands > 0) {
+            "$thousands ${steps.mod(1000)}"
+        } else {
+            steps.toString()
         }
     }
 }
