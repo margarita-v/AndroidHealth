@@ -1,13 +1,11 @@
 package com.example.androidhealth.ui.details.steps
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.patrykandpatryk.vico.core.entry.FloatEntry
 import com.patrykandpatryk.vico.core.util.RandomEntriesGenerator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -15,6 +13,19 @@ class StepsDetailsViewModel : ViewModel() {
 
     private val calendar = Calendar.getInstance()
     private val days = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+    private val generator = RandomEntriesGenerator(
+        xRange = IntProgression.fromClosedRange(0, 24, 2),
+        yRange = 0..1000,
+    )
+    private val stepsData = (0..days).map {
+        val entries = generator.generateRandomEntries()
+        val sum = entries.sumOf { it.y.toInt() }
+        StepsPerDayModel(
+            entries = entries,
+            sum = sum,
+            left = 10000 - sum
+        )
+    }
 
     private val currentDay: Int
         get() = calendar.get(Calendar.DAY_OF_MONTH)
@@ -26,6 +37,7 @@ class StepsDetailsViewModel : ViewModel() {
             val day = currentDay
             _canGoToNextDay.value = day < days
             _canGoToPreviousDay.value = day > 1
+            _currentChartData.value = stepsData[currentDay - 1]
             _currentDayTitle.value = renderFormattedDay(calendar)
         }
 
@@ -38,19 +50,8 @@ class StepsDetailsViewModel : ViewModel() {
     private val _currentDayTitle = MutableStateFlow(renderFormattedDay(calendar))
     val currentDayTitle: StateFlow<String> get() = _currentDayTitle.asStateFlow()
 
-    private val _stepsData = MutableStateFlow(listOf<StepsPerDayModel>())
-    val stepsData: StateFlow<List<StepsPerDayModel>> get() = _stepsData.asStateFlow()
-
-    val generator = RandomEntriesGenerator(
-        xRange = IntProgression.fromClosedRange(0, 24, 2),
-        yRange = 2000..6000,
-    )
-
-    init {
-        viewModelScope.launch {
-            // todo generate items
-        }
-    }
+    private val _currentChartData = MutableStateFlow(stepsData.first())
+    val currentChartData: StateFlow<StepsPerDayModel> get() = _currentChartData.asStateFlow()
 
     fun goToNextDay() {
         currentDayOffset = 1

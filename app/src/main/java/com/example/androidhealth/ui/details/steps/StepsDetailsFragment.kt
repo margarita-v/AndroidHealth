@@ -14,15 +14,13 @@ import com.example.androidhealth.utils.resolveColor
 import com.patrykandpatryk.vico.core.axis.Axis
 import com.patrykandpatryk.vico.core.axis.AxisPosition
 import com.patrykandpatryk.vico.core.axis.formatter.AxisValueFormatter
-import com.patrykandpatryk.vico.core.chart.decoration.ThresholdLine
 import com.patrykandpatryk.vico.core.chart.line.LineChart
 import com.patrykandpatryk.vico.core.chart.values.ChartValues
-import com.patrykandpatryk.vico.core.component.shape.ShapeComponent
-import com.patrykandpatryk.vico.core.component.text.textComponent
-import com.patrykandpatryk.vico.core.dimensions.MutableDimensions
 import com.patrykandpatryk.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatryk.vico.core.formatter.ValueFormatter
 import kotlinx.coroutines.launch
+
+private const val STEPS_FORMATTER = "% d"
 
 class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
 
@@ -54,6 +52,16 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
                     binding.stepsDateTv.text = it
                 }
             }
+            launch {
+                viewModel.currentChartData.collect {
+                    producer.setEntries(it.entries)
+                    binding.stepsCountTv.text = STEPS_FORMATTER.format(it.sum)
+                    binding.stepsCountLeftTv.text = getString(
+                        R.string.title_steps_left,
+                        STEPS_FORMATTER.format(it.left)
+                    )
+                }
+            }
         }
         binding.stepsLeftIbtn.setOnClickListener { viewModel.goToPreviousDay() }
         binding.stepsRightIbtn.setOnClickListener { viewModel.goToNextDay() }
@@ -72,7 +80,6 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
             (bottomAxis as Axis).guideline = null
             (bottomAxis as Axis).valueFormatter = valueFormatter
 
-            val accentColor = context.resolveColor(R.color.accent)
             val mainBackground = context.resolveColor(R.color.mainBackground)
             marker = getMarker(
                 labelColor = mainBackground,
@@ -81,23 +88,7 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
                 guidelineColor = context.resolveAttrColor(android.R.attr.textColorPrimary),
             )
             (chart as LineChart).spacingDp = 60f
-            chart?.maxY = 10000f
-            chart?.addDecoration(
-                decoration = ThresholdLine(
-                    thresholdValue = 8000f,
-                    thresholdLabel = "8 000",
-                    minimumLineThicknessDp = 2f,
-                    labelHorizontalPosition = ThresholdLine.LabelHorizontalPosition.End,
-                    labelComponent = textComponent {
-                        color = accentColor
-                        textSizeSp = 12f
-                        margins = MutableDimensions(0f, 0f, 20f, 3f)
-                    },
-                    lineComponent = ShapeComponent(color = accentColor),
-                )
-            )
         }
-        producer.setEntries(viewModel.generator.generateRandomEntries())
     }
 }
 
