@@ -57,7 +57,7 @@ class StepsDetailsViewModel : ViewModel() {
     private val _currentDayTitle = MutableStateFlow(renderFormattedDay(calendar))
     val currentDayTitle: StateFlow<String> get() = _currentDayTitle.asStateFlow()
 
-    private val _currentChartData = MutableStateFlow(stepsData.first())
+    private val _currentChartData = MutableStateFlow(stepsData[currentDay - 1])
     val currentChartData: StateFlow<StepsPerDayModel> get() = _currentChartData.asStateFlow()
 
     fun goToNextDay() {
