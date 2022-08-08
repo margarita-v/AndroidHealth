@@ -7,10 +7,12 @@ import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
-import com.example.androidhealth.R
+import androidx.annotation.ColorRes
 import com.example.androidhealth.utils.resolveColor
+import com.example.androidhealth.utils.toPx
 
 private const val cornerRadius = 80f
+private val minWidth = 1.toPx
 
 /** A line chart view which shows percentages of given values */
 class LineScaleChartView @JvmOverloads constructor(
@@ -18,11 +20,24 @@ class LineScaleChartView @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : View(context, attrs) {
 
+    var data: List<UiData> = listOf()
+        set(value) {
+            field = value.map {
+                val width = it.width
+                if (width > 0) {
+                    it.copy(width = it.width.coerceAtLeast(minWidth))
+                } else {
+                    it
+                }
+            }
+            invalidate()
+        }
+
     private val paint = Paint().apply {
         isAntiAlias = true
         style = Paint.Style.FILL
     }
-    private val rect = RectF(0f, 100f, 200f, 180f)
+    private val rect = RectF(0f, 0f, 0f, 80f)
     private val path = Path()
 
     private val startCorners = floatArrayOf(
@@ -41,25 +56,22 @@ class LineScaleChartView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val data = listOf(224, 16, 48)
-        val modifier = measuredWidth.toFloat() / data.sum()
-        val renderData = data.map { it.toFloat() * modifier }
+        val modifier = measuredWidth.toFloat() / data.sumOf { it.width }
+        val renderData = data.map { it.width.toFloat() * modifier }
         var previousWidth = 0f
         renderData.forEachIndexed { index, width ->
             val rect = rect.apply { right = width }
+            paint.color = context.resolveColor(data[index].color)
             path.reset()
             when {
                 index == 0 -> {
-                    paint.color = context.resolveColor(R.color.errigal_white)
                     path.addRoundRect(rect, startCorners, Path.Direction.CW)
                 }
                 index < data.lastIndex -> {
-                    paint.color = context.resolveColor(R.color.jovial_jade)
                     canvas.translate(previousWidth, 0f)
                     path.addRect(rect, Path.Direction.CW)
                 }
                 else -> {
-                    paint.color = context.resolveColor(R.color.corona)
                     canvas.translate(previousWidth, 0f)
                     path.addRoundRect(rect, endCorners, Path.Direction.CW)
                 }
@@ -68,4 +80,9 @@ class LineScaleChartView @JvmOverloads constructor(
             previousWidth = width
         }
     }
+
+    data class UiData(
+        val width: Int,
+        @ColorRes val color: Int
+    )
 }
