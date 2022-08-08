@@ -22,7 +22,7 @@ class LineScaleChartView @JvmOverloads constructor(
         isAntiAlias = true
         style = Paint.Style.FILL
     }
-    private val rect = RectF(0f, 100f, 200f, 200f)
+    private val rect = RectF(0f, 100f, 200f, 180f)
     private val path = Path()
 
     private val startCorners = floatArrayOf(
@@ -41,28 +41,11 @@ class LineScaleChartView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        //todo calculate proper parts of each value
-        val data = listOf(224, 80, 200)
-        val max = data.max()
-        var sum = 0f
-        var maxCount = 0
-        val renderData = data.map {
-            if (it == max) {
-                maxCount += 1
-                LineScaleData.Max
-            } else {
-                val width = it.toFloat() / measuredWidth * 1000
-                sum += width
-                LineScaleData.Value(width = width)
-            }
-        }
+        val data = listOf(224, 16, 48)
+        val modifier = measuredWidth.toFloat() / data.sum()
+        val renderData = data.map { it.toFloat() * modifier }
         var previousWidth = 0f
-        renderData.forEachIndexed { index, lineScaleData ->
-            val width = if (lineScaleData is LineScaleData.Value) {
-                lineScaleData.width
-            } else {
-                (measuredWidth - sum) / maxCount
-            }
+        renderData.forEachIndexed { index, width ->
             val rect = rect.apply { right = width }
             path.reset()
             when {
@@ -85,9 +68,4 @@ class LineScaleChartView @JvmOverloads constructor(
             previousWidth = width
         }
     }
-}
-
-private sealed class LineScaleData {
-    object Max : LineScaleData()
-    data class Value(val width: Float) : LineScaleData()
 }
