@@ -15,4 +15,10 @@
     <color name="cascading_white">#F6F6F6</color>
     <color name="azure_hint">#DCDDE1</color>
     <color name="mithril_silver">#B9BAC1</color>
+
+    <color name="errigal_white">#F1F1F3</color>
+    <color name="jovial_jade">#7EE7A9</color>
+    <color name="hollandaise">#FFEC42</color>
+    <color name="corona">#FFB437</color>
+    <color name="apocalyptic_orange">#F56F23</color>
 </resources>
