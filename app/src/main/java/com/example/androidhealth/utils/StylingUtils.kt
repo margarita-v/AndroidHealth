@@ -2,6 +2,8 @@ package com.example.androidhealth.utils
 
 import android.content.res.Resources
 
+const val EMPTY_RESOURCE = -1
+
 val Int.toDp: Int
     get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 

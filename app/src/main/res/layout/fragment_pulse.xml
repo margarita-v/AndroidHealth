@@ -12,6 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp" />
 
-    <include layout="@layout/view_pulse_info" />
+    <com.example.androidhealth.ui.view.pulse.PulseInfoTypeView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp" />
 
 </LinearLayout>

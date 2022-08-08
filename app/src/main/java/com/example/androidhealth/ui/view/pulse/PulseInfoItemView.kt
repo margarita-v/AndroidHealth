@@ -4,10 +4,13 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.ViewPulseInfoItemBinding
+import com.example.androidhealth.utils.EMPTY_RESOURCE
 
 class PulseInfoItemView @JvmOverloads constructor(
     context: Context,
@@ -21,18 +24,25 @@ class PulseInfoItemView @JvmOverloads constructor(
         applyAttrs(context)
     }
 
+    fun render(@ColorRes tint: Int, @StringRes title: Int) {
+        binding.iconView.backgroundTintList = ContextCompat.getColorStateList(context, tint)
+        if (title != EMPTY_RESOURCE) {
+            binding.titleTv.setText(title)
+        }
+    }
+
     private fun applyAttrs(context: Context) {
         context.withStyledAttributes(attrs, R.styleable.PulseInfoItemView) {
-            val iconTint = getResourceId(
-                R.styleable.PulseInfoItemView_pulseIconTint,
-                R.color.accent
+            render(
+                tint = getResourceId(
+                    R.styleable.PulseInfoItemView_pulseIconTint,
+                    R.color.accent
+                ),
+                title = getResourceId(
+                    R.styleable.PulseInfoItemView_pulseTitle,
+                    EMPTY_RESOURCE
+                )
             )
-            val title = getResourceId(
-                R.styleable.PulseInfoItemView_pulseTitle,
-                -1
-            )
-            binding.iconView.backgroundTintList = ContextCompat.getColorStateList(context, iconTint)
-            binding.titleTv.setText(title)
         }
     }
 }
