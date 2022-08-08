@@ -12,6 +12,7 @@ import com.example.androidhealth.utils.resolveColor
 import com.example.androidhealth.utils.toPx
 
 private const val cornerRadius = 80f
+private const val maxHeight = 80f
 private val minWidth = 1.toPx
 
 /** A line chart view which shows percentages of given values */
@@ -37,7 +38,7 @@ class LineScaleChartView @JvmOverloads constructor(
         isAntiAlias = true
         style = Paint.Style.FILL
     }
-    private val rect = RectF(0f, 0f, 0f, 80f)
+    private val rect = RectF(0f, 0f, 0f, maxHeight)
     private val path = Path()
 
     private val startCorners = floatArrayOf(
@@ -52,6 +53,11 @@ class LineScaleChartView @JvmOverloads constructor(
         cornerRadius, cornerRadius,   // Bottom right radius in px
         0f, 0f                        // Bottom left radius in px
     )
+
+    override fun onMeasure(widthSpec: Int, heightSpec: Int) {
+        super.onMeasure(widthSpec, heightSpec)
+        setMeasuredDimension(measuredWidth, maxHeight.toInt())
+    }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)

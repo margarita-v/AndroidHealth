@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_z"
+                android:background="@drawable/bg_oval"
                 android:paddingHorizontal="14dp"
                 android:text="@string/title_sleep_z"
                 android:textAlignment="center"

@@ -4,4 +4,9 @@
         <attr name="toolbarBg" format="reference" />
         <attr name="btnSelectorBg" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="PulseInfoItemView">
+        <attr name="pulseIconTint" format="reference" />
+        <attr name="pulseTitle" format="reference" />
+    </declare-styleable>
 </resources>
