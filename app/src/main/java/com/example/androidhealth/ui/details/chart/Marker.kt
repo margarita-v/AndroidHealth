@@ -91,10 +91,11 @@ internal fun getMarker(
                     setShadow(radius = 12f, color = entryColor)
                 }
             }
+            /* todo https://github.com/patrykandpatryk/vico/issues/115
             labelFormatter =
                 MarkerLabelFormatter { markedEntries ->
                     markedEntries.firstOrNull()?.entry?.y?.toInt()?.toString().orEmpty()
-                }
+                }*/
         }
 
         override fun getInsets(
