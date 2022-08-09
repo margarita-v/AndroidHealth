@@ -21,6 +21,7 @@
     <string name="title_sleep_too_late">Вы легли спать слишком поздно</string>
     <string name="title_sleep_advice">Ложитесь спать до 22:00.\nЗасиживание допоздна может нанести вред имунной системе.</string>
 
+    <string name="title_pulse_measure">Измерение пульса</string>
     <string name="pulse_calm">В покое</string>
     <string name="pulse_light_activity">Легкая активность</string>
     <string name="pulse_fat_burning">Сжигание жира</string>

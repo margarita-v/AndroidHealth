@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,14 +8,38 @@
     android:orientation="vertical"
     tools:context=".ui.pulse.PulseFragment">
 
-    <com.example.androidhealth.ui.view.LineScaleChartView
-        android:id="@+id/pulse_cv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <com.example.androidhealth.ui.view.PulseInfoTypeView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="@color/componentBackground"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:contentPadding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/title_pulse_measure"
+                android:textAppearance="@style/Text.Medium.20.PrimaryColor" />
+
+            <com.example.androidhealth.ui.view.LineScaleChartView
+                android:id="@+id/pulse_cv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
+
+            <com.example.androidhealth.ui.view.PulseInfoTypeView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
