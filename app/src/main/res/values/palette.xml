@@ -14,6 +14,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="cascading_white">#F6F6F6</color>
     <color name="azure_hint">#DCDDE1</color>
+    <color name="emptiness">#FCFCFC</color>
     <color name="mithril_silver">#B9BAC1</color>
 
     <color name="errigal_white">#F1F1F3</color>
