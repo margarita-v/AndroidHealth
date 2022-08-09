@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="16dp"
     android:orientation="vertical"
     tools:context=".ui.pulse.PulseFragment">
 
     <com.example.androidhealth.ui.view.LineScaleChartView
         android:id="@+id/pulse_cv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp" />
+        android:layout_height="wrap_content" />
 
-    <com.example.androidhealth.ui.view.pulse.PulseInfoTypeView
+    <com.example.androidhealth.ui.view.PulseInfoTypeView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp" />
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>
