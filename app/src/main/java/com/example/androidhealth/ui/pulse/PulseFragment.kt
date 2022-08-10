@@ -21,8 +21,15 @@ class PulseFragment : Fragment(R.layout.fragment_pulse) {
         this.binding = binding
 
         lifecycleScope.launch {
-            viewModel.pulseData.collect {
-                binding.pulseCv.data = it
+            launch {
+                viewModel.pulseData.collect {
+                    binding.pulseCv.data = it
+                }
+            }
+            launch {
+                viewModel.pulseValues.collect {
+                    binding.pulseValuesCv.data = it
+                }
             }
         }
     }
