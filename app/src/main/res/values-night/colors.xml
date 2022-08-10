@@ -9,4 +9,6 @@
     <color name="stepsAverageChartColor">@color/emptiness</color>
     <color name="stepsFirstChartColor">@color/majestic_mount</color>
     <color name="stepsSecondChartColor">@color/mithril_silver</color>
+    <color name="sleepFirstDecorationColor">@color/memorize</color>
+    <color name="sleepSecondDecorationColor">@color/emptiness</color>
 </resources>

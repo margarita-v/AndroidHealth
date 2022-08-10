@@ -4,14 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="20dp"
     android:orientation="vertical"
     tools:context=".ui.sleep.SleepFragment">
+
+    <com.example.androidhealth.ui.view.TabCardInfoView
+        android:id="@+id/sleep_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:cardBackgroundColor="@color/componentBackground"
         app:cardCornerRadius="12dp"
         app:cardElevation="0dp"

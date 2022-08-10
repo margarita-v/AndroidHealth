@@ -16,6 +16,7 @@ class PulseInfoTypeView @JvmOverloads constructor(
 ) : RecyclerView(context, attrs) {
 
     init {
+        overScrollMode = OVER_SCROLL_NEVER
         layoutManager = GridLayoutManager(context, 2)
         adapter = PulseAdapter().apply { items = PulseInfoType.values().toList() }
     }
