@@ -7,6 +7,6 @@
     <color name="navBarUnSelectedIconTint">@color/memorize</color>
     <color name="titleColor">@color/white</color>
     <color name="stepsAverageChartColor">@color/emptiness</color>
-    <color name="stepsFirstChartColor">@color/mithril_silver</color>
-    <color name="stepsSecondChartColor">@color/majestic_mount</color>
+    <color name="stepsFirstChartColor">@color/majestic_mount</color>
+    <color name="stepsSecondChartColor">@color/mithril_silver</color>
 </resources>

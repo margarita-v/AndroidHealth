@@ -12,7 +12,7 @@ import com.example.androidhealth.utils.resolveColor
 
 typealias PulseValues = List<Int>
 
-private const val maxHeight = 200f
+private const val maxHeight = 150f
 private const val startX = 10f
 private const val diffX = 30f
 

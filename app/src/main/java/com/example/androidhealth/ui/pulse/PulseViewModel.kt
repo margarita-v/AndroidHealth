@@ -18,10 +18,16 @@ class PulseViewModel : ViewModel() {
         MutableStateFlow<Pair<PulseValues, PulseValues>>(listOf<Int>() to listOf())
     val pulseValues: StateFlow<Pair<PulseValues, PulseValues>> get() = _pulseValues.asStateFlow()
 
+    val pulseAverageValue: Int
+        get() = _pulseValues.value.let {
+            (it.first + it.second).average().toInt()
+        }
+
     init {
         _pulseData.value = PulseInfoType.values().map {
             UiData(width = Random.nextInt(0, 200), color = it.colorResId)
         }
-        _pulseValues.value = listOf(80, 120, 10) to listOf(100, 50, 120, 10, 40)
+        val values = listOf(80, 120, 10) to listOf(100, 50, 120, 10, 40)
+        _pulseValues.value = values
     }
 }

@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.FragmentPulseBinding
+import com.example.androidhealth.ui.view.PulseChartView
 import kotlinx.coroutines.launch
 
 class PulseFragment : Fragment(R.layout.fragment_pulse) {
@@ -14,6 +15,8 @@ class PulseFragment : Fragment(R.layout.fragment_pulse) {
     private var binding: FragmentPulseBinding? = null
 
     private val viewModel by viewModels<PulseViewModel>()
+
+    private val chartView by lazy { PulseChartView(requireContext()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,7 +31,12 @@ class PulseFragment : Fragment(R.layout.fragment_pulse) {
             }
             launch {
                 viewModel.pulseValues.collect {
-                    binding.pulseValuesCv.data = it
+                    chartView.data = it
+                    binding.pulseCardView.render(
+                        value = viewModel.pulseAverageValue.toString(),
+                        message = getString(R.string.title_tab_pulse_message),
+                        customView = chartView
+                    )
                 }
             }
         }
