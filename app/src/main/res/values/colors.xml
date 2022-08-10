@@ -7,8 +7,8 @@
     <color name="navBarUnSelectedIconTint">@color/mithril_silver</color>
     <color name="titleColor">@color/royal_curtsy</color>
     <color name="stepsAverageChartColor">@color/azure_hint</color>
-    <color name="stepsFirstChartColor">@color/azure_hint</color>
-    <color name="stepsSecondChartColor">@color/majestic_mount</color>
+    <color name="commonFirstChartColor">@color/azure_hint</color>
+    <color name="commonSecondChartColor">@color/majestic_mount</color>
     <color name="sleepFirstDecorationColor">@color/majestic_mount</color>
     <color name="sleepSecondDecorationColor">@color/azure_hint</color>
 </resources>

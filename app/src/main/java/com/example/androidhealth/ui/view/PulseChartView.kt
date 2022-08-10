@@ -22,6 +22,12 @@ class PulseChartView @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : View(context, attrs) {
 
+    var data: Pair<PulseValues, PulseValues> = listOf<Int>() to listOf()
+        set(value) {
+            field = value
+            invalidate()
+        }
+
     private val paint = Paint().apply {
         isAntiAlias = true
         strokeWidth = 12f
@@ -32,12 +38,6 @@ class PulseChartView @JvmOverloads constructor(
     private val path = Path()
     private var currentX = startX
 
-    var data: Pair<PulseValues, PulseValues> = listOf<Int>() to listOf()
-        set(value) {
-            field = value
-            invalidate()
-        }
-
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
         super.onMeasure(widthSpec, heightSpec)
         setMeasuredDimension(measuredWidth, maxHeight.toInt())
@@ -47,13 +47,13 @@ class PulseChartView @JvmOverloads constructor(
         super.onDraw(canvas)
 
         var points = data.first.mapToPoints()
-        drawPath(points = points, canvas = canvas, colorResId = R.color.stepsFirstChartColor)
+        drawPath(points = points, canvas = canvas, colorResId = R.color.commonFirstChartColor)
 
         val startPoint = points.last()
         points = data.second.mapToPoints().toMutableList().apply {
             add(0, startPoint)
         }
-        drawPath(points = points, canvas = canvas, colorResId = R.color.stepsSecondChartColor)
+        drawPath(points = points, canvas = canvas, colorResId = R.color.commonSecondChartColor)
     }
 
     private fun PulseValues.mapToPoints(): List<Pair<Float, Float>> =

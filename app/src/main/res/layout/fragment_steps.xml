@@ -7,6 +7,11 @@
     android:orientation="vertical"
     tools:context=".ui.steps.StepsFragment">
 
+    <com.example.androidhealth.ui.view.StepsCircleChartView
+        android:id="@+id/steps_circle_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/details_btn"
         android:layout_width="wrap_content"

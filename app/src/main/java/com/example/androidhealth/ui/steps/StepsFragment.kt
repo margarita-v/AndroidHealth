@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.example.androidhealth.R
 import com.example.androidhealth.RootNavGraphDirections
 import com.example.androidhealth.databinding.FragmentStepsBinding
+import com.example.androidhealth.ui.view.StepsCircleChartView
 import com.example.androidhealth.utils.applyTextAppearance
 import com.example.androidhealth.utils.openFullScreen
 import com.example.androidhealth.utils.resolveColor
@@ -48,6 +49,8 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
         binding.averageDistanceValueTv.text = TextUtils.concat(*distance)
 
         producer.setEntries(viewModel.entries)
+
+        binding.stepsCircleView.data = StepsCircleChartView.UiData(current = 2000)
         initChart()
     }
 
