@@ -28,6 +28,7 @@
 
     <string name="title_today">Сегодня</string>
     <string name="title_sleep_decoration">Zzz..</string>
+    <string name="title_tab_steps_message">Осталось %s шагов\nдо достижения цели </string>
     <string name="title_tab_pulse_message">Среднее значение\nПульс в покое</string>
     <string name="title_tab_sleep_message">Вы спали лучше,\nчем 21% пользователей</string>
 

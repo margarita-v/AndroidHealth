@@ -2,8 +2,11 @@ package com.example.androidhealth.ui.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.ViewTabCardInfoBinding
@@ -34,6 +37,11 @@ class TabCardInfoView @JvmOverloads constructor(
     ) {
         binding.valueTv.text = value
         binding.messageTv.text = message
-        binding.customViewContainer.addView(customView)
+        binding.customViewContainer.removeAllViews()
+        (customView.parent as? ViewGroup)?.removeView(customView)
+        val params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+            gravity = Gravity.CENTER
+        }
+        binding.customViewContainer.addView(customView, params)
     }
 }

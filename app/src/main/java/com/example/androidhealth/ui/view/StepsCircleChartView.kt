@@ -7,10 +7,11 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import com.example.androidhealth.R
+import com.example.androidhealth.utils.STEPS_RECOMMENDED
 import com.example.androidhealth.utils.resolveColor
 import com.example.androidhealth.utils.toPx
 
-private const val maxHeight = 250f
+private const val size = 250
 private const val maxAngle = 360f
 private const val offset = 20f
 private const val radius = 80f
@@ -37,7 +38,7 @@ class StepsCircleChartView @JvmOverloads constructor(
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
         super.onMeasure(widthSpec, heightSpec)
-        setMeasuredDimension(measuredWidth, maxHeight.toInt())
+        setMeasuredDimension(size, size)
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -53,6 +54,6 @@ class StepsCircleChartView @JvmOverloads constructor(
 
     data class UiData(
         val current: Int = 0,
-        val max: Int = 8000
+        val max: Int = STEPS_RECOMMENDED
     )
 }

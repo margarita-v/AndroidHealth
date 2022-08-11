@@ -10,9 +10,7 @@ import com.example.androidhealth.R
 import com.example.androidhealth.RootNavGraphDirections
 import com.example.androidhealth.databinding.FragmentStepsBinding
 import com.example.androidhealth.ui.view.StepsCircleChartView
-import com.example.androidhealth.utils.applyTextAppearance
-import com.example.androidhealth.utils.openFullScreen
-import com.example.androidhealth.utils.resolveColor
+import com.example.androidhealth.utils.*
 import com.patrykandpatryk.vico.core.chart.column.ColumnChart
 import com.patrykandpatryk.vico.core.chart.decoration.ThresholdLine
 import com.patrykandpatryk.vico.core.component.shape.LineComponent
@@ -27,6 +25,8 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
     private val viewModel by viewModels<StepsViewModel>()
 
     private val producer = ChartEntryModelProducer()
+
+    private val circleView by lazy { StepsCircleChartView(requireContext()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,7 +50,16 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
 
         producer.setEntries(viewModel.entries)
 
-        binding.stepsCircleView.data = StepsCircleChartView.UiData(current = 2000)
+        binding.stepsCardView.render(
+            value = formatSteps(viewModel.currentSteps),
+            message = getString(
+                R.string.title_tab_steps_message,
+                formatSteps(STEPS_RECOMMENDED - viewModel.currentSteps)
+            ),
+            customView = circleView.apply {
+                data = StepsCircleChartView.UiData(current = viewModel.currentSteps)
+            }
+        )
         initChart()
     }
 

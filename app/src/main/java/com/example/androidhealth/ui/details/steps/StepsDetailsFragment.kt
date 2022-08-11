@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.FragmentStepsDetailsBinding
 import com.example.androidhealth.ui.details.chart.getMarker
+import com.example.androidhealth.utils.formatSteps
 import com.example.androidhealth.utils.resolveAttrColor
 import com.example.androidhealth.utils.resolveColor
 import com.patrykandpatryk.vico.core.axis.Axis
@@ -88,21 +89,6 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
                 guidelineColor = context.resolveAttrColor(android.R.attr.textColorPrimary),
             )
             (chart as LineChart).spacingDp = 60f
-        }
-    }
-
-    private fun formatSteps(steps: Int): String {
-        val thousands = steps.div(1000)
-        val mod = steps.mod(1000)
-        return if (thousands > 0) {
-            val modFormatted = when {
-                mod < 10 -> "00$mod"
-                mod < 100 -> "0$mod"
-                else -> mod.toString()
-            }
-            "$thousands $modFormatted"
-        } else {
-            steps.toString()
         }
     }
 }

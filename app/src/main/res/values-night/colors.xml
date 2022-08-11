@@ -7,8 +7,8 @@
     <color name="navBarUnSelectedIconTint">@color/memorize</color>
     <color name="titleColor">@color/white</color>
     <color name="stepsAverageChartColor">@color/emptiness</color>
-    <color name="commonFirstChartColor">@color/majestic_mount</color>
-    <color name="commonSecondChartColor">@color/mithril_silver</color>
+    <color name="commonFirstChartColor">@color/memorize_24</color>
+    <color name="commonSecondChartColor">@color/majestic_mount</color>
     <color name="sleepFirstDecorationColor">@color/memorize</color>
     <color name="sleepSecondDecorationColor">@color/emptiness</color>
 </resources>

@@ -11,4 +11,5 @@ class StepsViewModel : ViewModel() {
     )
     val entries = generator.generateRandomEntries()
     val average = entries.map { it.y }.average()
+    val currentSteps = 2000
 }
