@@ -84,7 +84,7 @@ class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
             val mainBackground = context.resolveColor(R.color.mainBackground)
             marker = getMarker(
                 labelColor = mainBackground,
-                bubbleColor = context.resolveColor(R.color.onSecondary),
+                bubbleColor = context.resolveColor(R.color.white),
                 indicatorInnerColor = mainBackground,
                 guidelineColor = context.resolveAttrColor(android.R.attr.textColorPrimary),
             )
