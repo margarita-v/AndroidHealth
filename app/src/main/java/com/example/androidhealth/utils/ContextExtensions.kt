@@ -17,3 +17,10 @@ fun Context.resolveAttrColor(@AttrRes attrResId: Int): Int {
     theme.resolveAttribute(attrResId, typedValue, true)
     return ContextCompat.getColor(this, typedValue.resourceId)
 }
+
+@AttrRes
+fun Context.resolveAttr(@AttrRes attrResId: Int): Int {
+    val typedValue = TypedValue()
+    theme.resolveAttribute(attrResId, typedValue, true)
+    return typedValue.resourceId
+}

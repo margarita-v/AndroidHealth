@@ -33,10 +33,6 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
         val binding = FragmentStepsBinding.bind(view)
         this.binding = binding
 
-        binding.detailsBtn.setOnClickListener {
-            openFullScreen(RootNavGraphDirections.toDetails())
-        }
-
         val averageFormatted = "%.2f".format(viewModel.average)
         binding.distanceMessageTv.text =
             getString(R.string.steps_distance_message, averageFormatted)
@@ -58,6 +54,9 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
             ),
             customView = circleView.apply {
                 data = StepsCircleChartView.UiData(current = viewModel.currentSteps)
+            },
+            onClickListener = {
+                openFullScreen(RootNavGraphDirections.toDetails())
             }
         )
         initChart()

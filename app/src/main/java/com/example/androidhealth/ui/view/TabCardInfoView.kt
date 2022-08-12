@@ -6,10 +6,11 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import com.example.androidhealth.R
 import com.example.androidhealth.databinding.ViewTabCardInfoBinding
+import com.example.androidhealth.utils.resolveAttr
 import com.example.androidhealth.utils.resolveColor
 import com.example.androidhealth.utils.toPx
 
@@ -33,7 +34,8 @@ class TabCardInfoView @JvmOverloads constructor(
     fun render(
         value: String,
         message: String,
-        customView: View
+        customView: View,
+        onClickListener: (() -> Unit)? = null
     ) {
         binding.valueTv.text = value
         binding.messageTv.text = message
@@ -43,5 +45,18 @@ class TabCardInfoView @JvmOverloads constructor(
             gravity = Gravity.CENTER
         }
         binding.customViewContainer.addView(customView, params)
+
+        val hasListener = onClickListener != null
+        isClickable = hasListener
+        isFocusable = hasListener
+        foreground = if (hasListener) {
+            ContextCompat.getDrawable(
+                context,
+                context.resolveAttr(android.R.attr.selectableItemBackground)
+            )
+        } else {
+            null
+        }
+        onClickListener?.let { setOnClickListener { it() } }
     }
 }
