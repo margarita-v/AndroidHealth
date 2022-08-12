@@ -17,7 +17,9 @@ import com.patrykandpatryk.vico.core.component.shape.LineComponent
 import com.patrykandpatryk.vico.core.component.shape.ShapeComponent
 import com.patrykandpatryk.vico.core.component.shape.Shapes
 import com.patrykandpatryk.vico.core.entry.ChartEntryModelProducer
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StepsFragment : Fragment(R.layout.fragment_steps) {
 
     private var binding: FragmentStepsBinding? = null
@@ -47,13 +49,13 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
         producer.setEntries(viewModel.entries)
 
         binding.stepsCardView.render(
-            value = formatSteps(viewModel.currentSteps),
+            value = formatSteps(viewModel.currentSteps.sum),
             message = getString(
                 R.string.title_tab_steps_message,
-                formatSteps(STEPS_RECOMMENDED - viewModel.currentSteps)
+                formatSteps(viewModel.currentSteps.left)
             ),
             customView = circleView.apply {
-                data = StepsCircleChartView.UiData(current = viewModel.currentSteps)
+                data = StepsCircleChartView.UiData(current = viewModel.currentSteps.sum)
             },
             onClickListener = {
                 openFullScreen(RootNavGraphDirections.toDetails())

@@ -20,8 +20,10 @@ import com.patrykandpatryk.vico.core.chart.line.LineChart
 import com.patrykandpatryk.vico.core.chart.values.ChartValues
 import com.patrykandpatryk.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatryk.vico.core.formatter.ValueFormatter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class StepsDetailsFragment : Fragment(R.layout.fragment_steps_details) {
 
     private var binding: FragmentStepsDetailsBinding? = null

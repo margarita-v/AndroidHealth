@@ -9,10 +9,12 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.androidhealth.MainActivity
 import com.example.androidhealth.databinding.ActivitySplashBinding
+import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.applyInsetter
 import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }

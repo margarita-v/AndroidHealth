@@ -1,34 +1,26 @@
 package com.example.androidhealth.ui.details.steps
 
 import androidx.lifecycle.ViewModel
+import com.example.androidhealth.interactor.StepsDataInteractor
 import com.patrykandpatryk.vico.core.entry.FloatEntry
-import com.patrykandpatryk.vico.core.util.RandomEntriesGenerator
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class StepsDetailsViewModel : ViewModel() {
+@HiltViewModel
+class StepsDetailsViewModel @Inject constructor(
+    private val interactor: StepsDataInteractor
+) : ViewModel() {
 
     // is started from the current date and is updated for each render change
     private val calendar = Calendar.getInstance()
     private val startDate = calendar.get(Calendar.DAY_OF_MONTH)
     private val lastMonth = calendar.get(Calendar.MONTH) - 1
-    private val generator = RandomEntriesGenerator(
-        xRange = IntProgression.fromClosedRange(0, 24, 2),
-        yRange = 100..1000,
-    )
-    private val stepsData = (0..daysBetween()).map {
-        val entries = generator.generateRandomEntries()
-        val sum = entries.sumOf { it.y.toInt() }
-        StepsPerDayModel(
-            entries = entries,
-            sum = sum,
-            left = (10000 - sum).coerceAtLeast(0)
-        )
-    }
+    private val stepsData by lazy { interactor.stepsData }
 
     private val currentDay: Int
         get() = calendar.get(Calendar.DAY_OF_MONTH)
@@ -66,14 +58,6 @@ class StepsDetailsViewModel : ViewModel() {
 
     fun goToPreviousDay() {
         currentDayOffset = -1
-    }
-
-    /** Calculates a count of days between the current date and the same from the last month */
-    private fun daysBetween(): Long {
-        val calendar = Calendar.getInstance()
-        val current = calendar.timeInMillis
-        calendar.add(Calendar.MONTH, -1)
-        return TimeUnit.MILLISECONDS.toDays(current - calendar.timeInMillis)
     }
 
     private fun renderFormattedDay(calendar: Calendar): String =
